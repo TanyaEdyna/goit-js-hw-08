@@ -13,7 +13,7 @@ const saveVideoTime = e => {
     console.log(e.seconds);
 }
 
-player.on('play', throttle(saveVideoTime, 1000)) //метод on() на об'єкті player, який очікує подію "play"
+player.on('timeupdate', throttle(saveVideoTime, 1000)) //метод on() на об'єкті player, який очікує подію "play"
 //throttle(saveVideoTime, 1000) - вказувати другий параметр обов'язково(час,через який функцію можна викликати знову), в іншому випадку - за замовчуванням параметр =0 і це призводить до перевантаження браузера
 const currentVideoTime = parseFloat(localStorage.getItem(LOCAL_KEY));
 
